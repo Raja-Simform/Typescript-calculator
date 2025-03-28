@@ -98,7 +98,7 @@ export const REGEX_NUMBER_DECIMAL_END: RegExp = /(\d+(\.\d+)?)$/;
 export const REGEX_POWER_2_OR_3: RegExp = /\*\*3$|\*\*2$/;
 export const REGEX_SUPERSCRIPT_2_OR_3: RegExp = /[²³]$/;
 export const REGEX_OPERATOR_END: RegExp = /[*+\-/^]$/;
-export const REGEX_OPERATOR_OR_OPEN_PAREN: RegExp = /[\+\-\*\/\(]$/;
+export const REGEX_OPERATOR_OR_OPEN_PAREN: RegExp = /[+\-*/(]$/;//check it
 
 // Math symbols and operations
 export const SQUARE_POWER: string = '**2';

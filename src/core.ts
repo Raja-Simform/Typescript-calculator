@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ERROR_MESSAGE } from './constants';
 
 /**
@@ -53,7 +54,7 @@ class Core {
       this.calci.resultstr = this.calci.evalstr;
     } catch (error) {
       this.calci.evalstr = this.ERROR;
-      this.calci.resultstr = this.ERROR;
+      this.calci.resultstr =this.ERROR;
     } finally {
       this.calci.renderDisplay();
     }
