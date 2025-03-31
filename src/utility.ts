@@ -1,7 +1,3 @@
-/**
- * @fileoverview Main calculator module that initializes calculator components
- * @module ScientificCalculator
- */
 import History from './historyClass';
 import MemoryClass from './memoryClass';
 import MathOperations from './mathOperation';
@@ -16,10 +12,7 @@ import Core from './core';
  * @class
  */
 class ScientificCalculator {
-  /**
-   * Default error message
-   * @type {string}
-   */
+ 
   private readonly ERROR: string = 'Error';
 
   /**
@@ -96,32 +89,28 @@ class ScientificCalculator {
 
   /**
    * Updates the calculator display with current values
-   * @returns {void}
    */
-  public renderDisplay(): void {
+  public renderDisplay(){
     this.displayManager.renderDisplay();
   }
 
   /**
    * Removes the last character from the current expression
-   * @returns {void}
    */
-  public backspace(): void {
+  public backspace() {
     this.coreCalculator.backspace();
   }
 
   /**
    * Evaluates the current expression and displays the result
-   * @returns {void}
    */
-  public equals(): void {
+  public equals(){
     this.coreCalculator.equals();
   }
 }
 
 /**
  * The calculator instance used throughout the application
- * @type {ScientificCalculator}
  */
 const calculator: ScientificCalculator = new ScientificCalculator();
 

@@ -96,7 +96,7 @@ class History {
   /**
    * Retrieves history from local storage
    */
-  private getHistory(): void {
+  private getHistory() {
     const savedHistory = localStorage.getItem(HISTORY_STORAGE_KEY);
     this.calc_history = savedHistory ? JSON.parse(savedHistory) : [];
   }
@@ -104,7 +104,7 @@ class History {
   /**
    * Saves current history to local storage
    */
-  private saveHistoryToStorage(): void {
+  private saveHistoryToStorage() {
     localStorage.setItem(
       HISTORY_STORAGE_KEY,
       JSON.stringify(this.calc_history),
@@ -116,7 +116,7 @@ class History {
    * @param expression - The calculation expression
    * @param result - The calculated result
    */
-  public addToHistory(expression: string, result: number | string): void {
+  public addToHistory(expression: string, result: number | string){
     this.calc_history.unshift({
       expression,
       result: result.toString(),
@@ -131,7 +131,7 @@ class History {
   /**
    * Clears all history items
    */
-  public clearHistory(): void {
+  public clearHistory(){
     this.calc_history = [];
     this.saveHistoryToStorage();
     const historyPanel = document.querySelector(HISTORY_PANEL_SELECTOR);
@@ -146,7 +146,7 @@ class History {
   /**
    * Toggles history panel
    */
-  public toggleHistoryDisplay(): void {
+  public toggleHistoryDisplay(){
     const historyPanel = document.querySelector(HISTORY_PANEL_SELECTOR);
     console.log('hello');
     if (historyPanel) {
@@ -163,7 +163,7 @@ class History {
   /**
    * Creates the history panel
    */
-  public createHistoryPanel(): void {
+  public createHistoryPanel(){
     const panel = document.createElement('div');
     panel.className = HISTORY_PANEL_SELECTOR.substring(1);
     const calculatorContainer = document.querySelector(CALCULATOR_SELECTOR);
@@ -176,7 +176,7 @@ class History {
   /**
    * Renders the history panel
    */
-  public renderHistoryPanel(): void {
+  public renderHistoryPanel(){
     const panel = document.querySelector(HISTORY_PANEL_SELECTOR);
     if (!panel) return;
 

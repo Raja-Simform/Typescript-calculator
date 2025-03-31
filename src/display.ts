@@ -9,7 +9,6 @@ interface Calculator {
  * Class responsible for rendering calculator display
  */
 class Display {
-  /** Reference to the calculator instance */
   private calci: Calculator;
 
   /** DOM element representing the calculator display */
@@ -22,8 +21,6 @@ class Display {
   constructor(calci: Calculator) {
     this.calci = calci;
 
-    // Use non-null assertion as we expect .result to always exist
-    // Alternatively, you could add a null check in the constructor
     this.display = document.querySelector('.result')!;
 
     // Bind methods to this instance

@@ -1,5 +1,4 @@
 /**
- * @fileoverview Handles dropdown menu functionality for trigonometry and function menus
  * @module DropdownController
  */
 import {
@@ -18,7 +17,7 @@ import {
  * @param {string} dropdownId - The ID of the dropdown element
  * @param {string} showClass - The class to toggle for showing/hiding
  */
-function toggleDropdown(dropdownId: string, showClass: string): void {
+function toggleDropdown(dropdownId: string, showClass: string){
   const dropdown = document.getElementById(dropdownId);
   if (dropdown) {
     dropdown.classList.toggle(showClass);
@@ -37,7 +36,7 @@ function closeDropdownIfOpen(
   showClass: string,
   targetElement: Element | null,
   dropbtnSelector: string,
-): void {
+) {
   const dropdown = document.getElementById(dropdownId);
 
   if (
@@ -49,7 +48,6 @@ function closeDropdownIfOpen(
 }
 
 // Event listener for the trigonometry dropdown menu
-// Toggles the visibility of the trigonometry functions dropdown
 const trignoDropdownTrigger = document.querySelector(TRIGNO_DROPDOWN_SELECTOR);
 if (trignoDropdownTrigger) {
   trignoDropdownTrigger.addEventListener('click', () => {
@@ -58,7 +56,6 @@ if (trignoDropdownTrigger) {
 }
 
 // Event listener for the functions dropdown menu
-// Toggles the visibility of the general functions dropdown
 const funcDropdownTrigger = document.querySelector(FUNC_DROPDOWN_SELECTOR);
 if (funcDropdownTrigger) {
   funcDropdownTrigger.addEventListener('click', () => {
@@ -68,10 +65,9 @@ if (funcDropdownTrigger) {
 
 /**
  * Global click handler to close dropdown
- * Implements a click-outside behavior
- * @param {MouseEvent} event - The click event object
+ * @param {MouseEvent} event
  */
-window.onclick = function (event: MouseEvent): void {
+window.onclick = function (event: MouseEvent){
   // Type assertion to get the target as an Element
   const target = event.target as Element;
 

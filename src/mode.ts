@@ -59,7 +59,7 @@ class Mode {
    * @method initEventListeners
    * @description Sets up event listeners
    */
-  private initEventListeners(): void {
+  private initEventListeners(){
     const toggleBtn = document.querySelector(TOGGLE_BTN_SELECTOR);
     if (toggleBtn) {
       toggleBtn.addEventListener('click', this.degbtnHandler);
@@ -69,9 +69,8 @@ class Mode {
   /**
    * @method changeMode
    * @description Toggles between primary and secondary function modes
-   * @returns {void}
    */
-  public changeMode(): void {
+  public changeMode(){
     this.secondbtn = !this.secondbtn;
 
     const squareBtn = document.querySelector(`[value='${BTN_SQUARE}']`);
@@ -90,9 +89,8 @@ class Mode {
   /**
    * @method degree
    * @description Toggles between degree (DEG) and radian (RAD) modes
-   * @returns {void}
    */
-  public degree(): void {
+  public degree(){
     this.deg = !this.deg;
 
     const unitDisplay = document.querySelector(UNIT_SELECTOR);
@@ -110,9 +108,8 @@ class Mode {
    * @method degbtnHandler
    * @description Event handler for degree/FE button clicks
    * @param {Event} e - Click event object
-   * @returns {void}
    */
-  public degbtnHandler(e: Event): void {
+  public degbtnHandler(e: Event){
     const currentKey = (e.target as HTMLButtonElement)
       ?.closest('button')
       ?.getAttribute('value');
@@ -131,17 +128,15 @@ class Mode {
 
   /**
    * Getter for current degree mode
-   * @returns {boolean} Current degree mode state
    */
-  public isDegreeMode(): boolean {
+  public isDegreeMode(){
     return this.deg;
   }
 
   /**
    * Getter for secondary button mode
-   * @returns {boolean} Current secondary button state
    */
-  public isSecondMode(): boolean {
+  public isSecondMode(){
     return this.secondbtn;
   }
 }

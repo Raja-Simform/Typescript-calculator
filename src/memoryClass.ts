@@ -1,7 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/**
- * Import type for the calculator to improve type safety
- */
 import { ScientificCalculator } from './utility';
 
 import {
@@ -57,9 +54,8 @@ class MemoryClass {
   /**
    * @method getMemory
    * @description Retrieves memory value from local storage
-   * @returns {void}
    */
-  private getMemory(): void {
+  private getMemory(){
     const savedMemory = localStorage.getItem(MEMORY_STORAGE_KEY);
     this.memory = savedMemory ? parseFloat(savedMemory) : null;
   }
@@ -67,9 +63,8 @@ class MemoryClass {
   /**
    * @method setMemory
    * @description Saves current memory value to local storage
-   * @returns {void}
    */
-  private setMemory(): void {
+  private setMemory(){
     if (this.memory !== null) {
       localStorage.setItem(MEMORY_STORAGE_KEY, this.memory.toString());
     } else {
@@ -80,9 +75,8 @@ class MemoryClass {
   /**
    * @method updateMemoryButtons
    * @description Updates the state of memory-related buttons
-   * @returns {void}
    */
-  private updateMemoryButtons(): void {
+  private updateMemoryButtons(){
     const hasMemory = this.memory !== null;
 
     const mcButton = document.querySelector(
@@ -107,9 +101,8 @@ class MemoryClass {
    * @method memoryhandler
    * @description Event handler for memory operation button clicks
    * @param {Event} e - Click event object
-   * @returns {void}
    */
-  private memoryhandler(e: Event): void {
+  private memoryhandler(e: Event){
     const button = (e.target as Element).closest(
       'button',
     ) as HTMLButtonElement | null;

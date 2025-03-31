@@ -1,15 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ERROR_MESSAGE } from './constants';
 
+
+/**
+ * type for the History  used in calculator
+ */
+type History = {
+  addToHistory: (expression: string, result: number) => void;
+};
+
 /**
  * Interface for the Calculator instance used in Core
  */
 interface Calculator {
   evalstr: string;
   resultstr: string;
-  History: {
-    addToHistory: (expression: string, result: number) => void;
-  };
+  History: History;
   renderDisplay: () => void;
 }
 
@@ -41,7 +47,7 @@ class Core {
    * Evaluates the current expression
    * Adds the calculation to history if successful
    */
-  public equals(): void {
+  public equals(){
     if (this.calci.evalstr === this.ERROR || this.calci.evalstr === '') {
       return;
     }
@@ -64,7 +70,7 @@ class Core {
    * Removes the last character from the current expression
    * Handles special cases like exponents with multiple characters
    */
-  public backspace(): void {
+  public backspace(){
     if (!this.calci.evalstr) {
       return;
     }
@@ -91,7 +97,7 @@ class Core {
   /**
    * Clears the calculator's current expression and result
    */
-  public clearCalc(): void {
+  public clearCalc(){
     this.calci.evalstr = '';
     this.calci.resultstr = '';
     this.calci.renderDisplay();

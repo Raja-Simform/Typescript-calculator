@@ -1,7 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/**
- * Import type for the calculator to improve type safety
- */
 import { ScientificCalculator } from './utility';
 
 import {
@@ -89,9 +86,8 @@ class MathOperations {
   /**
    * @method square
    * @description Applies square or cube operation on second button mode
-   * @returns {void}
    */
-  public square(): void {
+  public square(){
     this.calci.evalstr = this.calci.evalstr.replace(
       REGEX_POWER_2_OR_3,
       EMPTY_STRING,
@@ -121,9 +117,8 @@ class MathOperations {
   /**
    * @method tenx
    * @description Applies 10 to the power of x
-   * @returns {void}
    */
-  public tenx(): void {
+  public tenx(){
     if (
       this.calci.evalstr === EMPTY_STRING ||
       REGEX_OPERATOR_OR_OPEN_PAREN.test(this.calci.evalstr)
@@ -141,9 +136,9 @@ class MathOperations {
   /**
    * @method xy
    * @description Applies x to the power of y
-   * @returns {void}
+   
    */
-  public xy(): void {
+  public xy(){
     if (!this.calci.evalstr.endsWith(POWER_OPERATOR)) {
       this.calci.evalstr += POWER_OPERATOR;
       this.calci.resultstr += DISPLAY_POWER;
@@ -154,9 +149,8 @@ class MathOperations {
   /**
    * @method pi
    * @description Adds π to the expression
-   * @returns {void}
    */
-  public pi(): void {
+  public pi(){
     if (
       this.calci.evalstr &&
       !isNaN(Number(this.calci.evalstr[this.calci.evalstr.length - 1]))
@@ -174,9 +168,9 @@ class MathOperations {
   /**
    * @method exponent
    * @description Adds e to the expression
-   * @returns {void}
+
    */
-  public exponent(): void {
+  public exponent(){
     if (
       this.calci.evalstr &&
       !isNaN(Number(this.calci.evalstr[this.calci.evalstr.length - 1]))
@@ -198,7 +192,7 @@ class MathOperations {
    * @returns {number|string} The factorial result or error message
    */
   public factorial(n: number): number | string {
-    try {
+    
       if (n === 0 || n === 1) {
         return 1;
       }
@@ -209,18 +203,13 @@ class MathOperations {
       }
 
       return result;
-    } catch (error) {
-      return ERROR_MESSAGE;
-    }
   }
 
   /**
    * @method factorialHandler
    * @description Handles factorial operation
-   * @returns {void}
    */
-  public factorialHandler(): void {
-    try {
+  public factorialHandler(){
       if (
         this.calci.evalstr === EMPTY_STRING ||
         isNaN(Number(this.calci.evalstr[this.calci.evalstr.length - 1]))
@@ -241,20 +230,15 @@ class MathOperations {
         this.calci.evalstr = this.calci.evalstr.slice(0, i + 1) + factValue;
         this.calci.resultstr += '!';
       }
-    } catch (error) {
-      this.calci.evalstr = ERROR_MESSAGE;
-      this.calci.resultstr = ERROR_MESSAGE;
-    } finally {
       this.calci.renderDisplay();
-    }
+    
   }
 
   /**
    * @method signChange
    * @description Toggles the sign of the current number
-   * @returns {void}
    */
-  public signChange(): void {
+  public signChange(){
     if (this.calci.evalstr === EMPTY_STRING) this.calci.evalstr = '0';
 
     if (typeof this.calci.evalstr !== 'string')
@@ -278,9 +262,8 @@ class MathOperations {
   /**
    * @method inverse
    * @description Calculates the reciprocal (1/x)
-   * @returns {void}
    */
-  public inverse(): void {
+  public inverse(){
     if (typeof this.calci.evalstr !== 'string')
       this.calci.evalstr = (this.calci.evalstr as unknown as string).toString();
 
@@ -302,9 +285,8 @@ class MathOperations {
   /**
    * @method expi
    * @description Toggles between standard and scientific notation
-   * @returns {void}
    */
-  public expi(): void {
+  public expi(){
     if (!this.calci.evalstr || isNaN(Number(this.calci.evalstr))) return;
 
     const num = Number(this.calci.evalstr);
@@ -326,9 +308,8 @@ class MathOperations {
   /**
    * @method sin
    * @description Applies sine function
-   * @returns {void}
    */
-  public sin(): void {
+  public sin(){
     this.calci.evalstr += this.calci.modeManager.isDegreeMode()
       ? SINE_DEG
       : SINE;
@@ -339,9 +320,8 @@ class MathOperations {
   /**
    * @method cos
    * @description Applies cosine
-   * @returns {void}
    */
-  public cos(): void {
+  public cos(){
     this.calci.evalstr += this.calci.modeManager.isDegreeMode()
       ? COSINE_DEG
       : COSINE;
@@ -352,9 +332,8 @@ class MathOperations {
   /**
    * @method tan
    * @description Applies tangent
-   * @returns {void}
    */
-  public tan(): void {
+  public tan(){
     this.calci.evalstr += this.calci.modeManager.isDegreeMode()
       ? TANGENT_DEG
       : TANGENT;
@@ -365,9 +344,8 @@ class MathOperations {
   /**
    * @method floor
    * @description Applies floor function
-   * @returns {void}
    */
-  public floor(): void {
+  public floor(){
     this.calci.evalstr += FLOOR;
     this.calci.resultstr += DISPLAY_FLOOR;
     this.calci.renderDisplay();
@@ -376,9 +354,8 @@ class MathOperations {
   /**
    * @method ceil
    * @description Applies ceiling function
-   * @returns {void}
    */
-  public ceil(): void {
+  public ceil(){
     this.calci.evalstr += CEIL;
     this.calci.resultstr += DISPLAY_CEIL;
     this.calci.renderDisplay();
@@ -387,9 +364,8 @@ class MathOperations {
   /**
    * @method log
    * @description Applies base-10 logarithm function
-   * @returns {void}
    */
-  public log(): void {
+  public log(){
     this.calci.evalstr += LOG10;
     this.calci.resultstr += DISPLAY_LOG;
     this.calci.renderDisplay();
@@ -398,9 +374,8 @@ class MathOperations {
   /**
    * @method ln
    * @description Applies natural logarithm function
-   * @returns {void}
    */
-  public ln(): void {
+  public ln(){
     this.calci.evalstr += LN;
     this.calci.resultstr += DISPLAY_LN;
     this.calci.renderDisplay();
@@ -409,9 +384,8 @@ class MathOperations {
   /**
    * @method abs
    * @description Applies absolute value function
-   * @returns {void}
    */
-  public abs(): void {
+  public abs(){
     this.calci.evalstr += ABS;
     this.calci.resultstr += DISPLAY_ABS;
     this.calci.renderDisplay();
@@ -420,9 +394,8 @@ class MathOperations {
   /**
    * @method squareroot
    * @description Applies square root or cube root function
-   * @returns {void}
    */
-  public squareroot(): void {
+  public squareroot(){
     if (this.calci.modeManager.isSecondMode()) {
       this.calci.evalstr += CUBE_ROOT;
       this.calci.resultstr += DISPLAY_CUBE_ROOT;
