@@ -5,6 +5,7 @@ import Display from './display';
 import InputHandler from './input';
 import Mode from './mode';
 import Core from './core';
+import { ERROR_MESSAGE } from './constants';
 
 /**
  * Scientific calculator that coordinates display, input handling, history tracking,
@@ -12,8 +13,8 @@ import Core from './core';
  * @class
  */
 class ScientificCalculator {
- 
-  private readonly ERROR: string = 'Error';
+  
+  private readonly ERROR: typeof ERROR_MESSAGE = 'Error';
 
   /**
    * String of the current expression to be evaluated

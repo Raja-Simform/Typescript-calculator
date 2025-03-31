@@ -27,7 +27,7 @@ class Core {
   private calci: Calculator;
 
   /** Error message to display when calculations fail */
-  private ERROR: string;
+  private ERROR: typeof ERROR_MESSAGE;
 
   /**
    * Creates an instance of Core

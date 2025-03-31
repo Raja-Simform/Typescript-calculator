@@ -148,7 +148,6 @@ class History {
    */
   public toggleHistoryDisplay(){
     const historyPanel = document.querySelector(HISTORY_PANEL_SELECTOR);
-    console.log('hello');
     if (historyPanel) {
       const panel = historyPanel as HTMLElement;
       if (panel.style.display === DISPLAY_NONE) {

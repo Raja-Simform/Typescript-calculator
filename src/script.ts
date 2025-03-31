@@ -48,6 +48,7 @@ function closeDropdownIfOpen(
 }
 
 // Event listener for the trigonometry dropdown menu
+
 const trignoDropdownTrigger = document.querySelector(TRIGNO_DROPDOWN_SELECTOR);
 if (trignoDropdownTrigger) {
   trignoDropdownTrigger.addEventListener('click', () => {
